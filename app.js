@@ -230,16 +230,38 @@ console.log('Excercies 10:',game.party);
 
 /*
 Exercise 11
-1. Copy the `catchPokemon` method that you just wrote above, and paste it below. Modify it so that it also decreases the number of pokeballs in your inventory each time you catch a Pokémon.
+1. Copy the `catchPokemon` method that you just wrote above, and paste it below. 
+Modify it so that it also decreases the number of pokeballs in your inventory each 
+time you catch a Pokémon.
+
 2. How will you find and update the quantity of pokeballs in the `game.items` array?
 
 Tips:
 For this exercise, it's okay to have a negative number of pokeballs.
-After updating the method, call it and pass in a Pokemon object of your choice from the `pokemon` data to catch it.
+After updating the method, call it and pass in a Pokemon object of your choice from the
+ `pokemon` data to catch it.
 Also, log the `game.items` array to confirm that the pokeball quantity is being decremented.
 
 Solve Exercise 11 here:
 */
+
+
+
+// const pokemonObj = {};
+pokemonObj.catchPokemon = function(caught){
+    if(caught === 'yes'){
+        console.log(caught);
+        return game.items[1].quantity = game.items[1].quantity - 1
+      
+    }
+}
+console.log('Excercise 11',pokemonObj.catchPokemon('yes'));
+console.log('Excercise 11',game.items); 
+
+
+
+
+
 
 
 /*
@@ -249,6 +271,21 @@ Exercise 12
 
 Solve Exercise 12 here:
 */
+
+
+
+// loop through the each index in the gyms array within the game object
+for(let i = 0; i < game.gyms.length; i++){
+    // if the gyms array at index i < 3 then
+    if(game.gyms[i].difficulty < 6){
+        // update the gyms array at index i object completed to true
+        game.gyms[i].completed = true;
+    }
+
+}
+
+console.log('Exercise 12:',game.gyms);
+
 
 
 /*
@@ -274,6 +311,25 @@ For example, if five gym objects have a value of `true` on their `completed` pro
 Solve Exercise 13 here:
 */
 
+const gymTally = {complete: 0, incomplete: 0}
+
+game.gymStatus = function(){
+    for(let i = 0; i < game.gyms.length; i++){
+        if(game.gyms[i].completed === true){
+            gymTally.complete++
+            // console.log('complete:',gymTally.complete);
+        }else{
+            gymTally.incomplete++
+            // console.log('incomplete:',gymTally.incomplete);
+        }
+    }
+}
+game.gymStatus();
+console.log(gymTally);
+// console.log(game);
+
+
+
 
 /*
 Exercise 14
@@ -286,7 +342,10 @@ This method should:
 
 Solve Exercise 14 here:
 */
+game.partyCount = () => game.party.length - 1;// subracting 1 because the last index in the party array is a method
 
+console.log(game.partyCount());
+console.log(game);
 
 /*
 Exercise 15
@@ -297,11 +356,23 @@ Solve Exercise 15 here:
 */
 
 
+for(let i = 0; i < game.gyms.length; i++){
+    // if the gyms array at index i < 3 then
+    if(game.gyms[i].difficulty < 8){
+        // update the gyms array at index i object completed to true
+        game.gyms[i].completed = true;
+    }
+
+}
+
+console.log('Exercise 15:',game.gyms);
+
+
+
 /*
 Exercise 16
 1. Log the entire `game` object to the console. Take a moment to review the changes you've made throughout the exercises.
 
-
 Solve Exercise 16 here:
 */
-
+console.log('Excercise 16:', game);
