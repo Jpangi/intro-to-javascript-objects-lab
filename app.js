@@ -80,8 +80,21 @@ Exercise 5
 Solve Exercise 5 here:
 */
 
-const randomPokemon = Math.floor(Math.random()*100) + 1; // random pokemon number between 1 - 100
-game.party.push(pokemon[randomPokemon], pokemon[randomPokemon + 5], pokemon[randomPokemon + 10]);// added + 5 and + 10 to the random pokemon to get different ones
+
+// grabs all of the starter pokemon for problem 7/ starting at index 1 since i have bulbasore already
+for(let i = 1; i < pokemon.length; i++){
+    if(pokemon[i].starter === true){
+        game.party.push(pokemon[i])
+    }
+}
+
+
+
+
+
+// // chose random pokemon
+// const randomPokemon = Math.floor(Math.random()*100) + 1; // random pokemon number between 1 - 100
+// game.party.push(pokemon[randomPokemon], pokemon[randomPokemon + 5], pokemon[randomPokemon + 10]);// added + 5 and + 10 to the random pokemon to get different ones
 console.log('Exercise 5:',game);
 
 
@@ -94,8 +107,11 @@ Exercise 6
 Solve Exercise 6 here:
 */
 
+// loop through the each index in the gyms array within the game object
 for(let i = 0; i < game.gyms.length; i++){
+    // if the gyms array at index i < 3 then
     if(game.gyms[i].difficulty < 3){
+        // update the gyms array at index i object completed to true
         game.gyms[i].completed = true;
     }
 
@@ -122,6 +138,31 @@ More Hints: The existing starter Pokemon will be *replaced* in your party with t
 Solve Exercise 7 here:
 */
 
+
+// tried to update all of the starters 
+// for(let i = 0; i < pokemon.length; i++){
+//     for(let i = 0; i < game.party.length; i++){ 
+//         if(pokemon[i].number === game.party[i].number + 1 ){
+//             game.party.splice(i,1, pokemon[i].number);  
+//         }
+//     } 
+//     // take the party array and number then add 1 to get its evolution number, and find that
+    
+//     // number in the pokemon array.
+//     // once i've found that number splice it into the party array where the original number was 
+// }
+
+
+game.party.splice(0,1,pokemon[1])
+console.log('excercise 7:',game.party[0]);
+
+
+
+
+
+
+
+
 /*
 Exercise 8
 1. Print the name of each Pokémon in your party.
@@ -129,6 +170,17 @@ Exercise 8
 
 Solve Exercise 8 here:
 */
+
+console.log('Excercies 8');
+for(let i = 0; i < game.party.length; i++){
+    console.log(game.party[i].name);
+}
+
+
+
+
+
+
 
 /*
 Exercise 9
@@ -138,6 +190,18 @@ Exercise 9
 
 Solve Exercise 9 here:
 */
+
+console.log('Excercise 9');
+for(let i = 0; i < pokemon.length; i++){
+    if(pokemon[i].starter === true){
+        console.log(pokemon[i].name);
+    }
+   
+}
+
+
+
+
 /*
 Exercise 10
 Create a method called `catchPokemon` and add it to the `game` object. You should not need to edit the original game object directly. This method should:
@@ -149,6 +213,21 @@ After writing this method, call it and pass in a Pokemon object of your choice f
 
 Solve Exercise 10 here:
 */
+
+const pokemonObj = {};
+pokemonObj.catchPokemon = function(){
+    return;
+}
+pokemonObj.catchPokemon();
+game.party.push(pokemonObj);
+
+console.log('Excercies 10:',game.party);
+
+
+
+
+
+
 /*
 Exercise 11
 1. Copy the `catchPokemon` method that you just wrote above, and paste it below. Modify it so that it also decreases the number of pokeballs in your inventory each time you catch a Pokémon.
